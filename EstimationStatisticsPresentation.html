@@ -10,7 +10,7 @@
 <link href="EstimationStatisticsPresentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.353">
 
-  <meta name="author" content="Chris Slaughter, Association Professor, VUMC Dept of Biostatistics">
+  <meta name="author" content="Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics">
   <meta name="dcterms.date" content="2023-10-05">
   <title>Moving Beyond p-values: Insights from Estimation Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="EstimationStatisticsPresentation_files/libs/revealjs/dist/theme/quarto.css">
   <link href="EstimationStatisticsPresentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="EstimationStatisticsPresentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -332,39 +351,83 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Chris Slaughter, Association Professor, VUMC Dept of Biostatistics 
+Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics 
 </div>
 </div>
 </div>
 
   <p class="date">2023-10-05</p>
 </section>
-<section id="introduction" class="slide level2">
-<h2>Introduction</h2>
-<h3 id="title-slide">Title Slide</h3>
-<ul>
-<li><strong>Title:</strong> Moving Beyond p-values: The Power of Estimation Statistics</li>
-<li><strong>Subtitle:</strong> A New Paradigm for Basic Science Research</li>
-<li><strong>Your Name, Title, Affiliation</strong></li>
-<li><strong>Date:</strong> 2023-10-05</li>
-</ul>
-<h3 id="objectives">Objectives</h3>
+<section>
+<section id="introduction" class="title-slide slide level1 center">
+<h1>Introduction</h1>
+
+</section>
+<section id="objectives" class="slide level2">
+<h2>Objectives</h2>
 <ul>
 <li>Why p-values can be problematic</li>
 <li>Introduction to estimation statistics</li>
 <li>Practical examples</li>
 <li>Tools and resources for implementation</li>
 </ul>
+</section></section>
+<section>
+<section id="background" class="title-slide slide level1 center">
+<h1>Background</h1>
+
 </section>
-<section id="background" class="slide level2">
-<h2>Background</h2>
-<h3 id="the-problem-with-p-values">The Problem with p-values</h3>
+<section id="p-values-a-compromise-measure" class="slide level2">
+<h2>P-Values: A Compromise Measure</h2>
 <ul>
-<li>Brief history of p-values in scientific research</li>
-<li>Common misconceptions (e.g., p &lt; 0.05 means “significant”)</li>
-<li>Pitfalls: p-hacking, multiple comparisons, and the replication crisis</li>
+<li>Developed in the early 20th century to address practical decision-making in experimental data.</li>
+<li>Designed as a tool for hypothesis testing.</li>
+<li>Measures the probability of obtaining results as extreme as those observed, assuming the null hypothesis is true.</li>
+<li>Current usage of the p-value combines the work of R.A. Fisher for assessing strength of evidence with Neyman and Pearson’s ideas for making decisions</li>
 </ul>
-<h3 id="misinterpretations-and-limitations">Misinterpretations and Limitations</h3>
+</section>
+<section id="fishers-contribution" class="slide level2">
+<h2>Fisher’s Contribution</h2>
+<ul>
+<li>Introduced by Ronald A. Fisher in the early 20th century.</li>
+<li>Measures the probability of obtaining results as extreme as observed, assuming the null hypothesis is true.</li>
+<li>Smaller p-values indicate stronger evidence against the null hypothesis.</li>
+<li>Flexible, intuitive measure of evidence.</li>
+</ul>
+</section>
+<section id="neyman-pearson-framework" class="slide level2">
+<h2>Neyman-Pearson Framework</h2>
+<ul>
+<li>Developed by Jerzy Neyman and Egon Pearson.</li>
+<li>Focused on long-term error rates and decision-making under uncertainty.</li>
+<li>Defined two types of errors: Type I (false positive) and Type II (false negative).</li>
+<li>Established fixed significance levels (e.g., 0.05) for hypothesis testing decisions.</li>
+</ul>
+</section>
+<section id="interpretation-of-p-value" class="slide level2">
+<h2>Interpretation of p-value</h2>
+
+<img data-src="figures/Fishers-belief-and-Efrons-interpretation-of-observed-p-values.png" style="width:100.0%" class="r-stretch"><p><span class="citation" data-cites="bajpai2021">(<a href="#/additional-resources" role="doc-biblioref" onclick="">Bajpai and Chaturvedi 2021</a>)</span></p>
+<ul>
+<li>Neyman-Pearson differs in that it declares “significant” or “not significant” with no distinction between values</li>
+</ul>
+</section>
+<section id="example-large-sample-size-with-trivial-effect" class="slide level2">
+<h2>Example: Large Sample Size with Trivial Effect</h2>
+<ul>
+<li><p>Study investigating whether a new educational program improves test scores.</p></li>
+<li><p>Large sample size: 10,000 students.</p></li>
+<li><p>Findings</p>
+<ul>
+<li>Average test score for program participants: 76.5</li>
+<li>Average test score for non-participants: 76.0</li>
+</ul></li>
+<li><p>Calculated p-value: p = 0.001</p></li>
+<li><p>But, a 0.5 difference is trivial</p></li>
+</ul>
+</section>
+<section id="misinterpretations-and-limitations" class="slide level2">
+<h2>Misinterpretations and Limitations</h2>
 <ul>
 <li>Examples where p-values have misled researchers</li>
 <li>The binary nature of p-values oversimplifies results</li>
@@ -444,7 +507,7 @@ Chris Slaughter, Association Professor, VUMC Dept of Biostatistics
 <li>Provide your contact information for follow-up</li>
 </ul>
 </section>
-<section id="additional-resources" class="slide level2">
+<section id="additional-resources" class="slide level2 smaller scrollable">
 <h2>Additional Resources</h2>
 <h3 id="references-and-further-reading">References and Further Reading</h3>
 <ul>
@@ -458,7 +521,12 @@ Chris Slaughter, Association Professor, VUMC Dept of Biostatistics
 <div class="footer footer-default">
 
 </div>
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bajpai2021" class="csl-entry" role="listitem">
+Bajpai, Ram, and Himanshu Chaturvedi. 2021. <span>“Toward a More Nuanced Interpretation of Statistical Significance in Biomedical Research.”</span> <em>Asian Journal of Oncology</em> 07 (March). <a href="https://doi.org/10.1055/s-0041-1727066">https://doi.org/10.1055/s-0041-1727066</a>.
+</div>
+</div>
+</section></section>
     </div>
   </div>
 

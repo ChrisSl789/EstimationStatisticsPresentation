@@ -1,33 +1,66 @@
 ---
 title: "Moving Beyond p-values: Insights from Estimation Statistics"
 subtitle: "A New Paradigm for Basic Science Research"
-author: "Chris Slaughter, Association Professor, VUMC Dept of Biostatistics"
+author: "Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics"
 date: "2023-10-05"
 format: revealjs
+bibliography: references.bib
 ---
 
-## Introduction
+# Introduction
 
-### Title Slide
-- **Title:** Moving Beyond p-values: The Power of Estimation Statistics
-- **Subtitle:** A New Paradigm for Basic Science Research
-- **Your Name, Title, Affiliation**
-- **Date:** 2023-10-05
 
-### Objectives
+## Objectives
 - Why p-values can be problematic
 - Introduction to estimation statistics
 - Practical examples
 - Tools and resources for implementation
 
-## Background
+# Background
 
-### The Problem with p-values
-- Brief history of p-values in scientific research
-- Common misconceptions (e.g., p < 0.05 means "significant")
-- Pitfalls: p-hacking, multiple comparisons, and the replication crisis
+## P-Values: A Compromise Measure
 
-### Misinterpretations and Limitations
+- Developed in the early 20th century to address practical decision-making in experimental data.
+- Designed as a tool for hypothesis testing.
+- Measures the probability of obtaining results as extreme as those observed, assuming the null hypothesis is true.
+- Current usage of the p-value combines the work of R.A. Fisher for assessing strength of evidence with Neyman and Pearson's ideas for making decisions
+
+## Fisher's Contribution
+
+- Introduced by Ronald A. Fisher in the early 20th century.
+- Measures the probability of obtaining results as extreme as observed, assuming the null hypothesis is true.
+- Smaller p-values indicate stronger evidence against the null hypothesis.
+- Flexible, intuitive measure of evidence.
+
+
+## Neyman-Pearson Framework
+
+- Developed by Jerzy Neyman and Egon Pearson.
+- Focused on long-term error rates and decision-making under uncertainty.
+- Defined two types of errors: Type I (false positive) and Type II (false negative).
+- Established fixed significance levels (e.g., 0.05) for hypothesis testing decisions.
+
+## Interpretation of p-value
+
+![](figures/Fishers-belief-and-Efrons-interpretation-of-observed-p-values.png){width=100%}
+
+[@bajpai2021]
+
+- Neyman-Pearson differs in that it declares "significant" or "not significant" with no distinction between values
+
+## Example: Large Sample Size with Trivial Effect
+
+- Study investigating whether a new educational program improves test scores.
+
+- Large sample size: 10,000 students.
+
+- Findings 
+   - Average test score for program participants: 76.5
+   - Average test score for non-participants: 76.0
+- Calculated p-value: p = 0.001
+
+
+## Misinterpretations and Limitations
 - Examples where p-values have misled researchers
 - The binary nature of p-values oversimplifies results
 
