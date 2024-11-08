@@ -1,0 +1,97 @@
+---
+title: "Moving Beyond p-values: Insights from Estimation Statistics"
+subtitle: "A New Paradigm for Basic Science Research"
+author: "Chris Slaughter, Association Professor, VUMC Dept of Biostatistics"
+date: "2023-10-05"
+format: revealjs
+---
+
+## Introduction
+
+### Title Slide
+- **Title:** Moving Beyond p-values: The Power of Estimation Statistics
+- **Subtitle:** A New Paradigm for Basic Science Research
+- **Your Name, Title, Affiliation**
+- **Date:** 2023-10-05
+
+### Objectives
+- Why p-values can be problematic
+- Introduction to estimation statistics
+- Practical examples
+- Tools and resources for implementation
+
+## Background
+
+### The Problem with p-values
+- Brief history of p-values in scientific research
+- Common misconceptions (e.g., p < 0.05 means "significant")
+- Pitfalls: p-hacking, multiple comparisons, and the replication crisis
+
+### Misinterpretations and Limitations
+- Examples where p-values have misled researchers
+- The binary nature of p-values oversimplifies results
+
+## Introduction to Estimation Statistics
+
+### What is Estimation Statistics?
+- Definition and key concepts:
+  - Point estimates
+  - Confidence intervals
+  - Effect sizes
+
+### Advantages Over p-values
+- More information about the magnitude and precision of effects
+- Encourages thinking about clinical or practical significance
+- Helps in comparing and combining results from multiple studies
+
+## Practical Examples
+
+### Example 1: Effect Size
+- Real-world example where effect size provides more insight than a p-value
+- Visual aids like forest plots or bar charts with confidence intervals
+
+### Example 2: Confidence Intervals
+- Confidence intervals give a range of plausible values for the estimate
+- Interpretation: not just "does it include zero?"
+
+## Implementing Estimation Statistics
+
+### Tools and Software
+- Overview of software and packages that support estimation statistics (e.g., R, Python, SPSS, JASP)
+- Brief demo or screenshots of generating these statistics in R using packages like `effectsize` or `estimatr`
+
+### Reporting and Interpretation
+- Best practices for reporting estimation statistics in research papers
+- How to interpret and discuss these results in the context of your research
+
+## Case Studies
+
+### Case Study 1
+- Detailed walk-through of a published paper that used estimation statistics
+- Highlight key findings and how they were reported
+
+### Case Study 2
+- Another example from a different field to show the versatility of estimation statistics
+
+## Conclusion
+
+### Summary
+- Recap the key points covered
+- Reinforce the benefits of using estimation statistics
+
+### Future Directions
+- Encourage the audience to start incorporating these methods in their research
+- Mention any upcoming workshops, courses, or resources for further learning
+
+### Q&A
+- Open the floor for questions
+- Provide your contact information for follow-up
+
+## Additional Resources
+
+### References and Further Reading
+- List of key papers, books, and online resources
+- Recommended software and tutorials
+
+### Acknowledgments
+- Acknowledge any collaborators or funding sources
