@@ -1,130 +1,220 @@
 ---
-title: "Moving Beyond p-values: Insights from Estimation Statistics"
-subtitle: "A New Paradigm for Basic Science Research"
+title: "Moving Beyond p-values"
+subtitle: "Insights from Estimation Statistics"
 author: "Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics"
 date: "2023-10-05"
-format: revealjs
+format:
+   revealjs:
+     slide-number: true
+
 bibliography: references.bib
+css: styles.css
 ---
 
 # Introduction
 
-
 ## Objectives
-- Why p-values can be problematic
-- Introduction to estimation statistics
-- Practical examples
-- Tools and resources for implementation
+
+-   Why p-values can be problematic
+-   Introduction to estimation statistics
+-   Practical examples
+-   Tools and resources for implementation
 
 # Background
 
 ## P-Values: A Compromise Measure
 
-- Developed in the early 20th century to address practical decision-making in experimental data.
-- Designed as a tool for hypothesis testing.
-- Measures the probability of obtaining results as extreme as those observed, assuming the null hypothesis is true.
-- Current usage of the p-value combines the work of R.A. Fisher for assessing strength of evidence with Neyman and Pearson's ideas for making decisions
+-   Developed in the early 20th century to address practical decision-making in experimental data.
+    -   Designed as a tool for hypothesis testing.
+-   Measures the probability of obtaining results as extreme as those observed, assuming the null hypothesis is true.
+-   Current usage of the p-value combines the work of R.A. Fisher for assessing strength of evidence with Neyman and Pearson's ideas for making decisions
+
+![](figures/conflictcompromise.webp){fig-align="center"}
 
 ## Fisher's Contribution
 
-- Introduced by Ronald A. Fisher in the early 20th century.
-- Measures the probability of obtaining results as extreme as observed, assuming the null hypothesis is true.
-- Smaller p-values indicate stronger evidence against the null hypothesis.
-- Flexible, intuitive measure of evidence.
-
+-   Introduced by Ronald A. Fisher in the early 20th century.
+-   P-values measure the probability of obtaining results as extreme as observed, assuming the null hypothesis is true.
+-   Smaller p-values indicate stronger evidence against the null hypothesis.
+-   Null hypothesis usually consists of "no association" (of scientific interest) plus assumptions related to the statistical approach (necessary, buy not of scientific interest)
 
 ## Neyman-Pearson Framework
 
-- Developed by Jerzy Neyman and Egon Pearson.
-- Focused on long-term error rates and decision-making under uncertainty.
-- Defined two types of errors: Type I (false positive) and Type II (false negative).
-- Established fixed significance levels (e.g., 0.05) for hypothesis testing decisions.
+-   Developed by Jerzy Neyman and Egon Pearson.
+-   Focused on long-term error rates and decision-making under uncertainty.
+-   Defined two types of errors: Type I (false positive) and Type II (false negative).
+    -   Established fixed significance levels (e.g., 0.05) for hypothesis testing decisions.
+    -   Power is 1 minus the Type II error rate
 
-## Interpretation of p-value
+## Two interpretation of p-value
 
-![](figures/Fishers-belief-and-Efrons-interpretation-of-observed-p-values.png){width=100%}
+![](figures/Fishers-belief-and-Efrons-interpretation-of-observed-p-values.png){width="100%"}
 
 [@bajpai2021]
 
-- Neyman-Pearson differs in that it declares "significant" or "not significant" with no distinction between values
-
 ## Example: Large Sample Size with Trivial Effect
 
-- Study investigating whether a new educational program improves test scores.
+-   Study investigating whether a new educational program improves test scores.
 
-- Large sample size: 10,000 students.
+-   Large sample size: 10,000 students.
 
-- Findings 
-   - Average test score for program participants: 76.5
-   - Average test score for non-participants: 76.0
-- Calculated p-value: p = 0.001
+-   Findings
 
+    -   Average test score for program participants: 76.5
+    -   Average test score for non-participants: 76.0
 
-## Misinterpretations and Limitations
-- Examples where p-values have misled researchers
-- The binary nature of p-values oversimplifies results
+-   Calculated p-value: p = 0.001
 
-## Introduction to Estimation Statistics
+## Example: Small p-values can mislead science
 
-### What is Estimation Statistics?
-- Definition and key concepts:
-  - Point estimates
-  - Confidence intervals
-  - Effect sizes
+-   Spurious association between MMR vaccine and development of autism
+    -   Small study of 12 subjects
+-   No analysis of the MMR-autism association, but one p-value (p=0.003) is presented three times in the manuscript
+-   Many design issues, ethical concerns, bias, and other problems with this study
+-   Despite the retraction of the study and overwhelming evidence from subsequent research showing no link between the MMR vaccine and autism, the damage caused by the Wakefield study persists.
+
+[@wakefield1998] (retracted)
+
+# Introduction to Estimation Statistics
+
+## What is Estimation Statistics?
+
+-   Null-hypothesis significance testing and P values have been questioned for over 40 years.
+    -   Critics have raised concerns on both philosophical and practical grounds.
+    -   An alternative method, accessible with modest retraining, exists.
+-   Estimation statistics describes methods focused on
+    -   Estimating effect sizes (point estimates).
+    -   Providing confidence intervals (precision estimates).
+-   Estimation statistics offers key benefits over current methods.
 
 ### Advantages Over p-values
-- More information about the magnitude and precision of effects
-- Encourages thinking about clinical or practical significance
-- Helps in comparing and combining results from multiple studies
 
-## Practical Examples
+-   More information about the magnitude and precision of effects
+-   Encourages thinking about clinical or practical significance
+-   Helps in comparing and combining results from multiple studies
 
-### Example 1: Effect Size
-- Real-world example where effect size provides more insight than a p-value
-- Visual aids like forest plots or bar charts with confidence intervals
+## Examples
 
-### Example 2: Confidence Intervals
-- Confidence intervals give a range of plausible values for the estimate
-- Interpretation: not just "does it include zero?"
+### Example 1: Evolution of two-group data graphics
 
-## Implementing Estimation Statistics
+::: scroll-box
+![](figures/41592_2019_470_Fig1_HTML.png)
+:::
 
-### Tools and Software
-- Overview of software and packages that support estimation statistics (e.g., R, Python, SPSS, JASP)
-- Brief demo or screenshots of generating these statistics in R using packages like `effectsize` or `estimatr`
+[@ho2019]
 
-### Reporting and Interpretation
-- Best practices for reporting estimation statistics in research papers
-- How to interpret and discuss these results in the context of your research
+## Example 2: Paired differences
 
-## Case Studies
+::: {layout="[ 50, 50 ]"}
+::: {#first-column}
+![](figures/output_Paired.png)
+:::
 
-### Case Study 1
-- Detailed walk-through of a published paper that used estimation statistics
-- Highlight key findings and how they were reported
+::: r-fit-text
+The paired mean difference between Control and Test is shown in the above Gardner-Altman estimation plot. Both groups are plotted on the left axes as a slopegraph: each paired set of observations is connected by a line. The paired mean difference is plotted on a floating axes on the right as a bootstrap sampling distribution. The mean difference is depicted as a dot; the 95% confidence interval is indicated by the ends of the vertical error bar.
+:::
+:::
 
-### Case Study 2
-- Another example from a different field to show the versatility of estimation statistics
+## Other examples
 
-## Conclusion
+![](figures/estimationsampleplots.png)
 
-### Summary
-- Recap the key points covered
-- Reinforce the benefits of using estimation statistics
+# Implementing Estimation Statistics
 
-### Future Directions
-- Encourage the audience to start incorporating these methods in their research
-- Mention any upcoming workshops, courses, or resources for further learning
+## Tools and Software
 
-### Q&A
-- Open the floor for questions
-- Provide your contact information for follow-up
+-   <https://www.estimationstats.com/#/>
 
-## Additional Resources
+- Software packages that support estimation statistics
+   * R, Python, SPSS, GraphPad Prism
+   * GraphPad Prism (starting with Prism 9) will automatically generate an *estimation plot* for both paired and unpaired t tests.
+   
+   
+## R example
 
-### References and Further Reading
-- List of key papers, books, and online resources
-- Recommended software and tutorials
+* Code and data
 
-### Acknowledgments
-- Acknowledge any collaborators or funding sources
+::: {layout="[ 50, 50 ]"}
+
+::: {#first-column}
+```{r, echo=TRUE}
+library(dabestr)
+levels(sleep$group) <- c("A","B")
+two_groups_unpaired <- load(sleep,
+  x = group, y = extra,
+  idx = c("A", "B")
+)
+two_groups_unpaired.mean_diff <- 
+  mean_diff(two_groups_unpaired)
+```
+:::
+
+::: {#second-column}
+```{r}
+knitr::kable(head(sleep))
+```
+:::
+:::
+
+## R example continued (produced plot)
+
+
+```{r, echo=TRUE}
+dabest_plot(two_groups_unpaired.mean_diff, 
+            swarm_label="Extra Hours Sleep")
+```
+
+
+
+## Reporting and Interpretation
+
+-   Best practices for reporting estimation statistics in research papers
+-   How to interpret and discuss these results in the context of your research
+
+[@Michel2020]
+
+## Guideline: Include quantitiative vallues
+
+* It is not sufficient to report only the direction of a difference (e.g., increased or decreased) or whether the difference reached statistical significance.
+* A tripling of a response has different biologic implications than a 10% increase, even if both are statistically significant.
+* P values in the absence of indicators of effect sizes should not be reported because even a very small P value in isolation does not tell us whether an observed effect was large enough to be deemed biologically relevant.
+
+## Guideline: Report confidence intervals
+
+* Show magnitude of the difference (or ratio) and how precisely it was determined
+* The CI provides a range of possible values for an estimate of some effect size.
+* Based on the outer limits of the CI, readers can determine whether even these can still be considered biologically relevant. 
+* For instance, a novel drug in the treatment of obesity may lower body weight by a mean of 10%, and 5% is considered relevant
+  * Small study CI: 0.5% to 19.5% reduction
+  * Large study CI: 8% to 12% reduction
+  * Both P<0.05, but only large study excludes trivial reduction
+
+# Summary
+
+## P-values are often misunderstood
+
+* P values provide a precise answers to a backward question
+   * If the null hypothesis is true (as well as other assumptions), what is the chance that an experiment repeated many times would result in an effect (difference, ratio, or percent change) as large as (or larger than) that observed in the completed experiment?
+
+* Many scientists think (incorrectly) that the P value is the probability that a given result occurred by chance.
+
+
+## The null hypothesis is often the opposite of the biologic hypothesis
+
+* Example: Dose captopril lowers blood pressure in spontaneously hypertensive rats? The null hypothesis would be that it does not.
+
+* The null hypothesis is often false because most treatments cause at least some change to most outcomes, although that effect may be biologically trivial
+
+* Estimation statistics address the relevant question, the size of the difference
+
+* How precisely the effect is measured (confidence interval) addresses the potential importance of the finding
+
+
+
+## Questions
+
+* Additional questions
+
+
+## References
+

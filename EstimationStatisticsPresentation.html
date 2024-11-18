@@ -12,7 +12,7 @@
 
   <meta name="author" content="Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics">
   <meta name="dcterms.date" content="2023-10-05">
-  <title>Moving Beyond p-values: Insights from Estimation Statistics</title>
+  <title>Moving Beyond p-values</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -51,6 +116,7 @@
       margin-left: 2em;
     }  </style>
   <link rel="stylesheet" href="EstimationStatisticsPresentation_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="EstimationStatisticsPresentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="EstimationStatisticsPresentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="EstimationStatisticsPresentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -345,8 +411,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Moving Beyond p-values: Insights from Estimation Statistics</h1>
-  <p class="subtitle">A New Paradigm for Basic Science Research</p>
+  <h1 class="title">Moving Beyond p-values</h1>
+  <p class="subtitle">Insights from Estimation Statistics</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -380,19 +446,22 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <section id="p-values-a-compromise-measure" class="slide level2">
 <h2>P-Values: A Compromise Measure</h2>
 <ul>
-<li>Developed in the early 20th century to address practical decision-making in experimental data.</li>
+<li>Developed in the early 20th century to address practical decision-making in experimental data.
+<ul>
 <li>Designed as a tool for hypothesis testing.</li>
+</ul></li>
 <li>Measures the probability of obtaining results as extreme as those observed, assuming the null hypothesis is true.</li>
 <li>Current usage of the p-value combines the work of R.A. Fisher for assessing strength of evidence with Neyman and Pearson’s ideas for making decisions</li>
 </ul>
-</section>
+
+<img data-src="figures/conflictcompromise.webp" class="r-stretch quarto-figure-center"></section>
 <section id="fishers-contribution" class="slide level2">
 <h2>Fisher’s Contribution</h2>
 <ul>
 <li>Introduced by Ronald A. Fisher in the early 20th century.</li>
-<li>Measures the probability of obtaining results as extreme as observed, assuming the null hypothesis is true.</li>
+<li>P-values measure the probability of obtaining results as extreme as observed, assuming the null hypothesis is true.</li>
 <li>Smaller p-values indicate stronger evidence against the null hypothesis.</li>
-<li>Flexible, intuitive measure of evidence.</li>
+<li>Null hypothesis usually consists of “no association” (of scientific interest) plus assumptions related to the statistical approach (necessary, buy not of scientific interest)</li>
 </ul>
 </section>
 <section id="neyman-pearson-framework" class="slide level2">
@@ -400,17 +469,17 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <ul>
 <li>Developed by Jerzy Neyman and Egon Pearson.</li>
 <li>Focused on long-term error rates and decision-making under uncertainty.</li>
-<li>Defined two types of errors: Type I (false positive) and Type II (false negative).</li>
+<li>Defined two types of errors: Type I (false positive) and Type II (false negative).
+<ul>
 <li>Established fixed significance levels (e.g., 0.05) for hypothesis testing decisions.</li>
+<li>Power is 1 minus the Type II error rate</li>
+</ul></li>
 </ul>
 </section>
-<section id="interpretation-of-p-value" class="slide level2">
-<h2>Interpretation of p-value</h2>
+<section id="two-interpretation-of-p-value" class="slide level2">
+<h2>Two interpretation of p-value</h2>
 
-<img data-src="figures/Fishers-belief-and-Efrons-interpretation-of-observed-p-values.png" style="width:100.0%" class="r-stretch"><p><span class="citation" data-cites="bajpai2021">(<a href="#/additional-resources" role="doc-biblioref" onclick="">Bajpai and Chaturvedi 2021</a>)</span></p>
-<ul>
-<li>Neyman-Pearson differs in that it declares “significant” or “not significant” with no distinction between values</li>
-</ul>
+<img data-src="figures/Fishers-belief-and-Efrons-interpretation-of-observed-p-values.png" style="width:100.0%" class="r-stretch"><p><span class="citation" data-cites="bajpai2021">(<a href="#/references" role="doc-biblioref" onclick="">Bajpai and Chaturvedi 2021</a>)</span></p>
 </section>
 <section id="example-large-sample-size-with-trivial-effect" class="slide level2">
 <h2>Example: Large Sample Size with Trivial Effect</h2>
@@ -423,26 +492,40 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <li>Average test score for non-participants: 76.0</li>
 </ul></li>
 <li><p>Calculated p-value: p = 0.001</p></li>
-<li><p>But, a 0.5 difference is trivial</p></li>
 </ul>
 </section>
-<section id="misinterpretations-and-limitations" class="slide level2">
-<h2>Misinterpretations and Limitations</h2>
+<section id="example-small-p-values-can-mislead-science" class="slide level2">
+<h2>Example: Small p-values can mislead science</h2>
 <ul>
-<li>Examples where p-values have misled researchers</li>
-<li>The binary nature of p-values oversimplifies results</li>
-</ul>
-</section>
-<section id="introduction-to-estimation-statistics" class="slide level2">
-<h2>Introduction to Estimation Statistics</h2>
-<h3 id="what-is-estimation-statistics">What is Estimation Statistics?</h3>
+<li>Spurious association between MMR vaccine and development of autism
 <ul>
-<li>Definition and key concepts:
-<ul>
-<li>Point estimates</li>
-<li>Confidence intervals</li>
-<li>Effect sizes</li>
+<li>Small study of 12 subjects</li>
 </ul></li>
+<li>No analysis of the MMR-autism association, but one p-value (p=0.003) is presented three times in the manuscript</li>
+<li>Many design issues, ethical concerns, bias, and other problems with this study</li>
+<li>Despite the retraction of the study and overwhelming evidence from subsequent research showing no link between the MMR vaccine and autism, the damage caused by the Wakefield study persists.</li>
+</ul>
+<p><span class="citation" data-cites="wakefield1998">(<a href="#/references" role="doc-biblioref" onclick=""><strong>wakefield1998?</strong></a>)</span> (retracted)</p>
+</section></section>
+<section>
+<section id="introduction-to-estimation-statistics" class="title-slide slide level1 center">
+<h1>Introduction to Estimation Statistics</h1>
+
+</section>
+<section id="what-is-estimation-statistics" class="slide level2">
+<h2>What is Estimation Statistics?</h2>
+<ul>
+<li>Null-hypothesis significance testing and P values have been questioned for over 40 years.
+<ul>
+<li>Critics have raised concerns on both philosophical and practical grounds.</li>
+<li>An alternative method, accessible with modest retraining, exists.</li>
+</ul></li>
+<li>Estimation statistics describes methods focused on
+<ul>
+<li>Estimating effect sizes (point estimates).</li>
+<li>Providing confidence intervals (precision estimates).</li>
+</ul></li>
+<li>Estimation statistics offers key benefits over current methods.</li>
 </ul>
 <h3 id="advantages-over-p-values">Advantages Over p-values</h3>
 <ul>
@@ -451,79 +534,197 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <li>Helps in comparing and combining results from multiple studies</li>
 </ul>
 </section>
-<section id="practical-examples" class="slide level2">
-<h2>Practical Examples</h2>
-<h3 id="example-1-effect-size">Example 1: Effect Size</h3>
+<section id="examples" class="slide level2">
+<h2>Examples</h2>
+<h3 id="example-1-evolution-of-two-group-data-graphics">Example 1: Evolution of two-group data graphics</h3>
+<div class="scroll-box">
+<p><img data-src="figures/41592_2019_470_Fig1_HTML.png"></p>
+</div>
+<p><span class="citation" data-cites="ho2019">(<a href="#/references" role="doc-biblioref" onclick="">Ho et al. 2019</a>)</span></p>
+</section>
+<section id="example-2-paired-differences" class="slide level2">
+<h2>Example 2: Paired differences</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="first-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="figures/output_Paired.png"></p>
+</div>
+<div class="r-fit-text quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p>The paired mean difference between Control and Test is shown in the above Gardner-Altman estimation plot. Both groups are plotted on the left axes as a slopegraph: each paired set of observations is connected by a line. The paired mean difference is plotted on a floating axes on the right as a bootstrap sampling distribution. The mean difference is depicted as a dot; the 95% confidence interval is indicated by the ends of the vertical error bar.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="other-examples" class="slide level2">
+<h2>Other examples</h2>
+
+<img data-src="figures/estimationsampleplots.png" class="r-stretch"></section></section>
+<section>
+<section id="implementing-estimation-statistics" class="title-slide slide level1 center">
+<h1>Implementing Estimation Statistics</h1>
+
+</section>
+<section id="tools-and-software" class="slide level2">
+<h2>Tools and Software</h2>
 <ul>
-<li>Real-world example where effect size provides more insight than a p-value</li>
-<li>Visual aids like forest plots or bar charts with confidence intervals</li>
-</ul>
-<h3 id="example-2-confidence-intervals">Example 2: Confidence Intervals</h3>
+<li><p><a href="https://www.estimationstats.com/#/" class="uri">https://www.estimationstats.com/#/</a></p></li>
+<li><p>Software packages that support estimation statistics</p>
 <ul>
-<li>Confidence intervals give a range of plausible values for the estimate</li>
-<li>Interpretation: not just “does it include zero?”</li>
+<li>R, Python, SPSS, GraphPad Prism</li>
+<li>GraphPad Prism (starting with Prism 9) will automatically generate an <em>estimation plot</em> for both paired and unpaired t tests.</li>
+</ul></li>
 </ul>
 </section>
-<section id="implementing-estimation-statistics" class="slide level2">
-<h2>Implementing Estimation Statistics</h2>
-<h3 id="tools-and-software">Tools and Software</h3>
+<section id="r-example" class="slide level2">
+<h2>R example</h2>
 <ul>
-<li>Overview of software and packages that support estimation statistics (e.g., R, Python, SPSS, JASP)</li>
-<li>Brief demo or screenshots of generating these statistics in R using packages like <code>effectsize</code> or <code>estimatr</code></li>
+<li>Code and data</li>
 </ul>
-<h3 id="reporting-and-interpretation">Reporting and Interpretation</h3>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="first-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(dabestr)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">levels</span>(sleep<span class="sc">$</span>group) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>two_groups_unpaired <span class="ot">&lt;-</span> <span class="fu">load</span>(sleep,</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="at">x =</span> group, <span class="at">y =</span> extra,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="at">idx =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a>two_groups_unpaired.mean_diff <span class="ot">&lt;-</span> </span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="fu">mean_diff</span>(two_groups_unpaired)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="second-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">extra</th>
+<th style="text-align: left;">group</th>
+<th style="text-align: left;">ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.7</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">-1.6</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">-0.2</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">-1.2</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">-0.1</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3.4</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="r-example-continued-produced-plot" class="slide level2">
+<h2>R example continued (produced plot)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">dabest_plot</span>(two_groups_unpaired.mean_diff, </span>
+<span id="cb2-2"><a href="#cb2-2"></a>            <span class="at">swarm_label=</span><span class="st">"Extra Hours Sleep"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="EstimationStatisticsPresentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="reporting-and-interpretation" class="slide level2">
+<h2>Reporting and Interpretation</h2>
 <ul>
 <li>Best practices for reporting estimation statistics in research papers</li>
 <li>How to interpret and discuss these results in the context of your research</li>
 </ul>
+<p><span class="citation" data-cites="Michel2020">(<a href="#/references" role="doc-biblioref" onclick="">Michel, Murphy, and Motulsky 2020</a>)</span></p>
 </section>
-<section id="case-studies" class="slide level2">
-<h2>Case Studies</h2>
-<h3 id="case-study-1">Case Study 1</h3>
+<section id="guideline-include-quantitiative-vallues" class="slide level2">
+<h2>Guideline: Include quantitiative vallues</h2>
 <ul>
-<li>Detailed walk-through of a published paper that used estimation statistics</li>
-<li>Highlight key findings and how they were reported</li>
-</ul>
-<h3 id="case-study-2">Case Study 2</h3>
-<ul>
-<li>Another example from a different field to show the versatility of estimation statistics</li>
+<li>It is not sufficient to report only the direction of a difference (e.g., increased or decreased) or whether the difference reached statistical significance.</li>
+<li>A tripling of a response has different biologic implications than a 10% increase, even if both are statistically significant.</li>
+<li>P values in the absence of indicators of effect sizes should not be reported because even a very small P value in isolation does not tell us hether an observed effect was large enough to be deemed biologically relevant.</li>
 </ul>
 </section>
-<section id="conclusion" class="slide level2">
-<h2>Conclusion</h2>
-<h3 id="summary">Summary</h3>
+<section id="guideline-report-confidence-intervals" class="slide level2">
+<h2>Guideline: Report confidence intervals</h2>
 <ul>
-<li>Recap the key points covered</li>
-<li>Reinforce the benefits of using estimation statistics</li>
+<li>Show magntude of the difference (or ratio) and how precisely it was determined</li>
+<li>The CI provides a range of possible values for an estimate of some effect size.</li>
+<li>Based on the outer limits of the CI, readers can determine whether even these can still be considered biologically relevant.</li>
+<li>For instance, a novel drug in the treatment of obesity may lower body weight by a mean of 10%, and 5% is considered relevant
+<ul>
+<li>Small study CI: 0.5% to 19.5% reduction</li>
+<li>Large study CI: 8% to 12% reduction</li>
+<li>Both P&lt;0.05, but only large study excludes trivial reduction</li>
+</ul></li>
 </ul>
-<h3 id="future-directions">Future Directions</h3>
+</section></section>
+<section>
+<section id="summary" class="title-slide slide level1 center">
+<h1>Summary</h1>
+
+</section>
+<section id="p-values-are-often-misunderstood" class="slide level2">
+<h2>P-values are often misunderstood</h2>
 <ul>
-<li>Encourage the audience to start incorporating these methods in their research</li>
-<li>Mention any upcoming workshops, courses, or resources for further learning</li>
-</ul>
-<h3 id="qa">Q&amp;A</h3>
+<li>P values provide a precise answers to a backward question
 <ul>
-<li>Open the floor for questions</li>
-<li>Provide your contact information for follow-up</li>
+<li>If the null hypothesis is true (as well as other assumptions), what is the chance that an experiment repeated many times would result in an effect (difference, ratio, or percent change) as large as (or larger than) that observed in the completed experiment?</li>
+</ul></li>
+<li>Many scientists think (incorrectly) that the P value is the probability that a given result occurred by chance.</li>
 </ul>
 </section>
-<section id="additional-resources" class="slide level2 smaller scrollable">
-<h2>Additional Resources</h2>
-<h3 id="references-and-further-reading">References and Further Reading</h3>
+<section id="p-values-tentatively-assume-a-null-hypothesis-that-is-the-opposite-of-the-biologic-hypothesis" class="slide level2">
+<h2>P values tentatively assume a null hypothesis that is the opposite of the biologic hypothesis</h2>
 <ul>
-<li>List of key papers, books, and online resources</li>
-<li>Recommended software and tutorials</li>
+<li><p>Example angiotensin-converting enzyme inhibitor captopril lowers blood pressure in spontaneously hypertensive rats, the null hypothesis would be that it does not.</p></li>
+<li><p>In most pharmacological research, the null hypothesis is often false because most treatments cause at least some change to most outcomes, although that effect may be biologically trivial. The relevant question, therefore, is how big the difference is.</p></li>
+<li><p>P values say nothing about how important or how large an effect is. With a large sample size, the P value will be tiny even if the effect size is small and biologically irrelevant.</p></li>
 </ul>
-<h3 id="acknowledgments">Acknowledgments</h3>
+</section>
+<section id="questions" class="slide level2">
+<h2>Questions</h2>
 <ul>
-<li>Acknowledge any collaborators or funding sources</li>
+<li>Additional questions</li>
 </ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 <div class="footer footer-default">
 
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-bajpai2021" class="csl-entry" role="listitem">
 Bajpai, Ram, and Himanshu Chaturvedi. 2021. <span>“Toward a More Nuanced Interpretation of Statistical Significance in Biomedical Research.”</span> <em>Asian Journal of Oncology</em> 07 (March). <a href="https://doi.org/10.1055/s-0041-1727066">https://doi.org/10.1055/s-0041-1727066</a>.
+</div>
+<div id="ref-ho2019" class="csl-entry" role="listitem">
+Ho, Justin, Tayfun Tumkaya, Stefan Aryal, Elizabeth Choi, and Adam Claridge-Chang. 2019. <span>“Moving Beyond p Values: Data Analysis with Estimation Graphics.”</span> <em>Nature Methods</em> 16: 565–66. <a href="https://doi.org/10.1038/s41592-019-0470-3">https://doi.org/10.1038/s41592-019-0470-3</a>.
+</div>
+<div id="ref-Michel2020" class="csl-entry" role="listitem">
+Michel, Martin C., T. J. Murphy, and Harvey J. Motulsky. 2020. <span>“New Author Guidelines for Displaying Data and Reporting Data Analysis and Statistical Methods in Experimental Biology.”</span> <em>Molecular Pharmacology</em> 97 (1): 49–60. <a href="https://doi.org/10.1124/mol.119.118927">https://doi.org/10.1124/mol.119.118927</a>.
 </div>
 </div>
 </section></section>
@@ -579,7 +780,7 @@ Bajpai, Ram, and Himanshu Chaturvedi. 2021. <span>“Toward a More Nuanced Inter
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -738,6 +939,44 @@ Bajpai, Ram, and Himanshu Chaturvedi. 2021. <span>“Toward a More Nuanced Inter
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
