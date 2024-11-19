@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.353">
 
   <meta name="author" content="Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics">
-  <meta name="dcterms.date" content="2023-10-05">
+  <meta name="dcterms.date" content="2024-11-19">
   <title>Moving Beyond p-values</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -422,7 +422,7 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 </div>
 </div>
 
-  <p class="date">2023-10-05</p>
+  <p class="date">2024-11-19</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center">
@@ -458,10 +458,10 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <section id="fishers-contribution" class="slide level2">
 <h2>Fisher’s Contribution</h2>
 <ul>
-<li>Introduced by Ronald A. Fisher in the early 20th century.</li>
-<li>P-values measure the probability of obtaining results as extreme as observed, assuming the null hypothesis is true.</li>
-<li>Smaller p-values indicate stronger evidence against the null hypothesis.</li>
-<li>Null hypothesis usually consists of “no association” (of scientific interest) plus assumptions related to the statistical approach (necessary, buy not of scientific interest)</li>
+<li>Developed mathematical theory for calculating P-values</li>
+<li>P-values measure the probability of obtaining results as extreme as observed, assuming the <em>null hypothesis</em> is true.</li>
+<li>Smaller p-values indicate stronger evidence against the <em>null hypothesis</em>.</li>
+<li><em>Null hypothesis</em> usually consists of “no association” (of scientific interest) plus assumptions related to the statistical approach (necessary, buy not of scientific interest)</li>
 </ul>
 </section>
 <section id="neyman-pearson-framework" class="slide level2">
@@ -474,6 +474,7 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <li>Established fixed significance levels (e.g., 0.05) for hypothesis testing decisions.</li>
 <li>Power is 1 minus the Type II error rate</li>
 </ul></li>
+<li>Concerned with <em>null</em> and <em>alternative</em> hypotheses</li>
 </ul>
 </section>
 <section id="two-interpretation-of-p-value" class="slide level2">
@@ -497,10 +498,7 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <section id="example-small-p-values-can-mislead-science" class="slide level2">
 <h2>Example: Small p-values can mislead science</h2>
 <ul>
-<li>Spurious association between MMR vaccine and development of autism
-<ul>
-<li>Small study of 12 subjects</li>
-</ul></li>
+<li>Spurious association between MMR vaccine and development of autism in small study of 12 subjects</li>
 <li>No analysis of the MMR-autism association, but one p-value (p=0.003) is presented three times in the manuscript</li>
 <li>Many design issues, ethical concerns, bias, and other problems with this study</li>
 <li>Despite the retraction of the study and overwhelming evidence from subsequent research showing no link between the MMR vaccine and autism, the damage caused by the Wakefield study persists.</li>
@@ -520,6 +518,11 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <li>Critics have raised concerns on both philosophical and practical grounds.</li>
 <li>An alternative method, accessible with modest retraining, exists.</li>
 </ul></li>
+</ul>
+</section>
+<section id="what-is-estimation-statistics-1" class="slide level2">
+<h2>What is Estimation Statistics?</h2>
+<ul>
 <li>Estimation statistics describes methods focused on
 <ul>
 <li>Estimating effect sizes (point estimates).</li>
@@ -527,11 +530,14 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 </ul></li>
 <li>Estimation statistics offers key benefits over current methods.</li>
 </ul>
-<h3 id="advantages-over-p-values">Advantages Over p-values</h3>
+</section>
+<section id="advantages-over-p-values" class="slide level2">
+<h2>Advantages Over p-values</h2>
 <ul>
 <li>More information about the magnitude and precision of effects</li>
 <li>Encourages thinking about clinical or practical significance</li>
 <li>Helps in comparing and combining results from multiple studies</li>
+<li>Encourages the use of informative figures to display data</li>
 </ul>
 </section>
 <section id="examples" class="slide level2">
@@ -659,21 +665,27 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <li>How to interpret and discuss these results in the context of your research</li>
 </ul>
 <p><span class="citation" data-cites="Michel2020">(<a href="#/references" role="doc-biblioref" onclick="">Michel, Murphy, and Motulsky 2020</a>)</span></p>
+<p><span class="citation" data-cites="Claridge-Chang2016">(<a href="#/references" role="doc-biblioref" onclick="">Claridge-Chang and Assam 2016</a>)</span></p>
 </section>
-<section id="guideline-include-quantitiative-vallues" class="slide level2">
-<h2>Guideline: Include quantitiative vallues</h2>
+<section id="guideline-include-quantitiative-values" class="slide level2">
+<h2>Guideline: Include quantitiative values</h2>
 <ul>
 <li>It is not sufficient to report only the direction of a difference (e.g., increased or decreased) or whether the difference reached statistical significance.</li>
 <li>A tripling of a response has different biologic implications than a 10% increase, even if both are statistically significant.</li>
-<li>P values in the absence of indicators of effect sizes should not be reported because even a very small P value in isolation does not tell us hether an observed effect was large enough to be deemed biologically relevant.</li>
+<li>P values in the absence of indicators of effect sizes should not be reported because even a very small P value in isolation does not tell us whether an observed effect was large enough to be deemed biologically relevant.</li>
 </ul>
 </section>
 <section id="guideline-report-confidence-intervals" class="slide level2">
 <h2>Guideline: Report confidence intervals</h2>
 <ul>
-<li>Show magntude of the difference (or ratio) and how precisely it was determined</li>
+<li>Show magnitude of the difference (or ratio) and how precisely it was determined</li>
 <li>The CI provides a range of possible values for an estimate of some effect size.</li>
 <li>Based on the outer limits of the CI, readers can determine whether even these can still be considered biologically relevant.</li>
+</ul>
+</section>
+<section id="guideline-report-confidence-intervals-1" class="slide level2">
+<h2>Guideline: Report confidence intervals</h2>
+<ul>
 <li>For instance, a novel drug in the treatment of obesity may lower body weight by a mean of 10%, and 5% is considered relevant
 <ul>
 <li>Small study CI: 0.5% to 19.5% reduction</li>
@@ -697,12 +709,13 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <li>Many scientists think (incorrectly) that the P value is the probability that a given result occurred by chance.</li>
 </ul>
 </section>
-<section id="p-values-tentatively-assume-a-null-hypothesis-that-is-the-opposite-of-the-biologic-hypothesis" class="slide level2">
-<h2>P values tentatively assume a null hypothesis that is the opposite of the biologic hypothesis</h2>
+<section id="the-null-hypothesis-is-often-the-opposite-of-the-biologic-hypothesis" class="slide level2">
+<h2>The null hypothesis is often the opposite of the biologic hypothesis</h2>
 <ul>
-<li><p>Example angiotensin-converting enzyme inhibitor captopril lowers blood pressure in spontaneously hypertensive rats, the null hypothesis would be that it does not.</p></li>
-<li><p>In most pharmacological research, the null hypothesis is often false because most treatments cause at least some change to most outcomes, although that effect may be biologically trivial. The relevant question, therefore, is how big the difference is.</p></li>
-<li><p>P values say nothing about how important or how large an effect is. With a large sample size, the P value will be tiny even if the effect size is small and biologically irrelevant.</p></li>
+<li><p>Example: Dose captopril lowers blood pressure in spontaneously hypertensive rats? The null hypothesis would be that it does not.</p></li>
+<li><p>The null hypothesis is often false because most treatments cause at least some change to most outcomes, although that effect may be biologically trivial</p></li>
+<li><p>Estimation statistics address the relevant question, the size of the difference</p></li>
+<li><p>How precisely the effect is measured (confidence interval) addresses the potential importance of the finding</p></li>
 </ul>
 </section>
 <section id="questions" class="slide level2">
@@ -719,6 +732,9 @@ Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-bajpai2021" class="csl-entry" role="listitem">
 Bajpai, Ram, and Himanshu Chaturvedi. 2021. <span>“Toward a More Nuanced Interpretation of Statistical Significance in Biomedical Research.”</span> <em>Asian Journal of Oncology</em> 07 (March). <a href="https://doi.org/10.1055/s-0041-1727066">https://doi.org/10.1055/s-0041-1727066</a>.
+</div>
+<div id="ref-Claridge-Chang2016" class="csl-entry" role="listitem">
+Claridge-Chang, Adam, and Priya Assam. 2016. <span>“Estimation Statistics Should Replace Significance Testing.”</span> <em>Nature Methods</em> 13 (2): 108–9. <a href="https://doi.org/10.1038/nmeth.3729">https://doi.org/10.1038/nmeth.3729</a>.
 </div>
 <div id="ref-ho2019" class="csl-entry" role="listitem">
 Ho, Justin, Tayfun Tumkaya, Stefan Aryal, Elizabeth Choi, and Adam Claridge-Chang. 2019. <span>“Moving Beyond p Values: Data Analysis with Estimation Graphics.”</span> <em>Nature Methods</em> 16: 565–66. <a href="https://doi.org/10.1038/s41592-019-0470-3">https://doi.org/10.1038/s41592-019-0470-3</a>.

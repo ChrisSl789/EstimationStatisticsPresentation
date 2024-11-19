@@ -2,10 +2,12 @@
 title: "Moving Beyond p-values"
 subtitle: "Insights from Estimation Statistics"
 author: "Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics"
-date: "2023-10-05"
+date: "2024-11-19"
 format:
    revealjs:
      slide-number: true
+html:
+  self-contained: true
 
 bibliography: references.bib
 css: styles.css
@@ -33,10 +35,10 @@ css: styles.css
 
 ## Fisher's Contribution
 
--   Introduced by Ronald A. Fisher in the early 20th century.
--   P-values measure the probability of obtaining results as extreme as observed, assuming the null hypothesis is true.
--   Smaller p-values indicate stronger evidence against the null hypothesis.
--   Null hypothesis usually consists of "no association" (of scientific interest) plus assumptions related to the statistical approach (necessary, buy not of scientific interest)
+-   Developed mathematical theory for calculating P-values
+-   P-values measure the probability of obtaining results as extreme as observed, assuming the *null hypothesis* is true.
+-   Smaller p-values indicate stronger evidence against the *null hypothesis*.
+-   *Null hypothesis* usually consists of "no association" (of scientific interest) plus assumptions related to the statistical approach (necessary, buy not of scientific interest)
 
 ## Neyman-Pearson Framework
 
@@ -45,6 +47,7 @@ css: styles.css
 -   Defined two types of errors: Type I (false positive) and Type II (false negative).
     -   Established fixed significance levels (e.g., 0.05) for hypothesis testing decisions.
     -   Power is 1 minus the Type II error rate
+-   Concerned with *null* and *alternative* hypotheses
 
 ## Two interpretation of p-value
 
@@ -67,8 +70,7 @@ css: styles.css
 
 ## Example: Small p-values can mislead science
 
--   Spurious association between MMR vaccine and development of autism
-    -   Small study of 12 subjects
+-   Spurious association between MMR vaccine and development of autism in small study of 12 subjects
 -   No analysis of the MMR-autism association, but one p-value (p=0.003) is presented three times in the manuscript
 -   Many design issues, ethical concerns, bias, and other problems with this study
 -   Despite the retraction of the study and overwhelming evidence from subsequent research showing no link between the MMR vaccine and autism, the damage caused by the Wakefield study persists.
@@ -82,16 +84,20 @@ css: styles.css
 -   Null-hypothesis significance testing and P values have been questioned for over 40 years.
     -   Critics have raised concerns on both philosophical and practical grounds.
     -   An alternative method, accessible with modest retraining, exists.
+
+## What is Estimation Statistics?
+
 -   Estimation statistics describes methods focused on
     -   Estimating effect sizes (point estimates).
     -   Providing confidence intervals (precision estimates).
 -   Estimation statistics offers key benefits over current methods.
 
-### Advantages Over p-values
+## Advantages Over p-values
 
 -   More information about the magnitude and precision of effects
 -   Encourages thinking about clinical or practical significance
 -   Helps in comparing and combining results from multiple studies
+-   Encourages the use of informative figures to display data
 
 ## Examples
 
@@ -173,7 +179,9 @@ dabest_plot(two_groups_unpaired.mean_diff,
 
 [@Michel2020]
 
-## Guideline: Include quantitiative vallues
+[@Claridge-Chang2016]
+
+## Guideline: Include quantitiative values
 
 * It is not sufficient to report only the direction of a difference (e.g., increased or decreased) or whether the difference reached statistical significance.
 * A tripling of a response has different biologic implications than a 10% increase, even if both are statistically significant.
@@ -183,7 +191,11 @@ dabest_plot(two_groups_unpaired.mean_diff,
 
 * Show magnitude of the difference (or ratio) and how precisely it was determined
 * The CI provides a range of possible values for an estimate of some effect size.
-* Based on the outer limits of the CI, readers can determine whether even these can still be considered biologically relevant. 
+* Based on the outer limits of the CI, readers can determine whether even these can still be considered biologically relevant.
+
+
+## Guideline: Report confidence intervals
+
 * For instance, a novel drug in the treatment of obesity may lower body weight by a mean of 10%, and 5% is considered relevant
   * Small study CI: 0.5% to 19.5% reduction
   * Large study CI: 8% to 12% reduction
