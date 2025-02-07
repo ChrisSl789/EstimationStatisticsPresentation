@@ -76,7 +76,7 @@ css: styles.css
 -   Many design issues, ethical concerns, bias, and other problems with this study
 -   Despite the retraction of the study and overwhelming evidence from subsequent research showing no link between the MMR vaccine and autism, the damage caused by the Wakefield study persists.
 
-[@wakefield1998] (retracted)
+[@Wakefield1998] (retracted)
 
 # Introduction to Estimation Statistics
 
