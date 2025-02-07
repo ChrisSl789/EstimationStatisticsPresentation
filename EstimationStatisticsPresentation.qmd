@@ -2,7 +2,7 @@
 title: "Moving Beyond p-values"
 subtitle: "Insights from Estimation Statistics"
 author: "Chris Slaughter, Associate Professor, VUMC Dept of Biostatistics"
-date: "2025-02-07"
+date: "2024-11-19"
 format:
    revealjs:
      slide-number: true
@@ -226,10 +226,7 @@ dabest_plot(two_groups_unpaired.mean_diff,
 
 ## Questions
 
-* <https://github.com/ChrisSl789/EstimationStatisticsPresentation/>
-
 * Additional questions
-
 
 
 ## References
